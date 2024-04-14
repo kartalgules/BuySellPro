@@ -1,6 +1,6 @@
-import React from "react";
+import { FC } from "react";
 
-const Table = () => {
+const Table : FC = () => {
   return (
     <div className="w-1/2 h-full flex justify-center items-center">
       <div className="w-5/6 h-5/6">

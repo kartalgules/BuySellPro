@@ -1,4 +1,3 @@
-import React from 'react'
 import LeftSection from './components/LeftSection'
 import Table from './components/Table'
 
