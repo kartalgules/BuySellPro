@@ -1,26 +1,33 @@
-import { FC } from "react";
+import React from 'react';
+import { useFormDataContext } from '../context/FormContext';
 
-const Table : FC = () => {
+const Table: React.FC = () => {
+  const { formData } = useFormDataContext();
+
   return (
-    <div className="w-1/2 h-full flex justify-center items-center">
-      <div className="w-5/6 h-5/6">
-        <table className="border-2 border-gray-400 w-full border-collapse">
-          <tr>
-            <th>ÜRÜN</th>
-            <th>ADET</th>
-            <th>FİYAT</th>
-            <th>KÂR</th>
+    <table className="w-full">
+      <thead>
+        <tr>
+          <th>Ürün Adı</th>
+          <th>Adet</th>
+          <th>Alış Fiyatı</th>
+          <th>Ekstra Maaliyet</th>
+          <th>Satış Fiyatı</th>
+        </tr>
+      </thead>
+      <tbody>
+        {formData.map((data, index) => (
+          <tr key={index}>
+            <td>{data.productName}</td>
+            <td>{data.quantity}</td>
+            <td>{data.buyPrice}</td>
+            <td>{data.extraCost}</td>
+            <td>{data.sellPrice}</td>
           </tr>
-          {<tr>
-            <td>Ürün Adı</td>
-            <td>10</td>
-            <td>200 TL</td>
-            <td>%10</td>
-          </tr>}
-        </table>
-      </div>
-    </div>
-  )
+        ))}
+      </tbody>
+    </table>
+  );
 };
 
 export default Table;
