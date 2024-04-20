@@ -1,4 +1,4 @@
-import { createContext, useState, useContext, PropsWithChildren, SetStateAction, FC } from 'react';
+import { createContext, useState, useContext, PropsWithChildren, SetStateAction, FC, ReactElement } from 'react';
 
 export interface FormData {
   productName: string;
@@ -23,7 +23,7 @@ export const useFormDataContext = () => {
   return context;
 };
 
-export const FormDataProvider : FC = ({ children } : PropsWithChildren) => {
+export const FormDataProvider : FC<{children:ReactElement}> = ({ children } : PropsWithChildren) => {
   const [formData, setFormData] = useState<FormData[]>([]);
 
   return (
