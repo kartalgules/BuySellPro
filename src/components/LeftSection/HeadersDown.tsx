@@ -3,26 +3,38 @@ import { useFormDataContext } from "../../context/FormContext";
 
 const HeadersDown: FC = () => {
   const { formData } = useFormDataContext();
-
-  console.log(formData);
   const totalCost =
     Array.isArray(formData) && formData.length > 0
-      ? formData.reduce((acc, curr) => acc + curr.buyPrice + curr.extraCost, 0)
+      ? formData.reduce(
+          (acc, curr) => acc + (curr.buyPrice + curr.extraCost) * curr.quantity,
+          0
+        )
       : 0;
   const totalProfit =
     Array.isArray(formData) && formData.length > 0
       ? formData.reduce(
           (acc, curr) =>
-            acc + (curr.sellPrice - curr.buyPrice - curr.extraCost),
+            acc +
+            (curr.sellPrice - curr.buyPrice - curr.extraCost) * curr.quantity,
           0
         )
       : 0;
   const totalRevenue =
     Array.isArray(formData) && formData.length > 0
-      ? formData.reduce((acc, curr) => acc + curr.sellPrice, 0)
+      ? formData.reduce((acc, curr) => acc + curr.sellPrice * curr.quantity, 0)
       : 0;
-  const totalProfitmargin = Array.isArray(formData) && formData.length > 0
-  ? ((totalRevenue - totalCost) / totalRevenue) * 100 : 0;
+  const totalProfitmargin =
+    Array.isArray(formData) && formData.length > 0
+      ? Number((
+          formData.reduce(
+            (acc, curr) =>
+              acc +
+              ((curr.sellPrice - (curr.buyPrice + curr.extraCost)) * 100) /
+                (curr.buyPrice + curr.extraCost),
+            0
+          ) / formData.length
+        ).toFixed(2))
+      : 0;
 
   return (
     <div className="h-full w-full flex justify-center text-center py-10">
@@ -38,7 +50,13 @@ const HeadersDown: FC = () => {
           </div>
           <div className="flex flex-col w-1/2 justify-center h-full border-slate-500 border-r-2 rounded-md">
             <h2>Kâr Marjı</h2>
-            <h1 className="text-2xl text-green-700">%{totalProfitmargin}</h1>
+            <h1
+              className={`text-2xl ${
+                totalProfitmargin > 20 ? "text-green-700" : "text-red-700"
+              }`}
+            >
+              %{totalProfitmargin}
+            </h1>
           </div>
         </div>
         <div className="flex flex-col w-1/2 justify-center h-full border-slate-500 border-x-2 rounded-md">

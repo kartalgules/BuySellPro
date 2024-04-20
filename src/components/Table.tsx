@@ -41,20 +41,21 @@ const Table: React.FC = () => {
               <td>{data.quantity}</td>
               <td>{data.buyPrice + data.extraCost}$</td>
               <td>{data.sellPrice}$</td>
-              <td>
+              <td className={((data.sellPrice - (data.buyPrice + data.extraCost)) * 100) / (data.buyPrice + data.extraCost) > 20 ? 'text-green-700' : 'text-red-700'}>
                 %
-                {((data.sellPrice - (data.buyPrice + data.extraCost)) /
-                  data.sellPrice) *
-                  100}
+                {(
+                  ((data.sellPrice - (data.buyPrice + data.extraCost)) * 100) /
+                  (data.buyPrice + data.extraCost)
+                ).toFixed(2)}
               </td>
               <td>{data.sellPrice - (data.buyPrice + data.extraCost)}$</td>
               <td>{data.quantity * data.sellPrice}$</td>
-                <button
-                  className="text-3xl text-red-600 mx-2"
-                  onClick={() => removeItem(index)}
-                >
-                  <MdCancel />
-                </button>
+              <button
+                className="text-3xl text-red-600 mx-2"
+                onClick={() => removeItem(index)}
+              >
+                <MdCancel />
+              </button>
             </tr>
           ))}
         </tbody>
