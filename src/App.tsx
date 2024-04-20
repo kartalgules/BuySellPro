@@ -4,7 +4,7 @@ import Table from './components/Table'
 function App() {
 
   return (
-    <div className='h-screen w-screen bg-gray-100 flex items-center '>
+    <div className='h-screen w-screen bg-gray-100 flex'>
       <LeftSection />
       <Table />
     </div>

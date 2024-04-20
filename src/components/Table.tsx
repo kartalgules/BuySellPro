@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useFormDataContext } from "../context/FormContext";
+import { TiDeleteOutline } from "react-icons/ti";
 
 const Table: React.FC = () => {
   const { formData, setFormData } = useFormDataContext();
@@ -20,29 +21,34 @@ const Table: React.FC = () => {
   }, []);
 
   return (
-    <table className="w-full">
-      <thead>
-        <tr>
-          <th>Ürün Adı</th>
-          <th>Adet</th>
-          <th>Maaliyet</th>
-          <th>Satış Fiyatı</th>
-        </tr>
-      </thead>
-      <tbody>
-        {formData.map((data, index) => (
-          <tr key={index}>
-            <td>{data.productName}</td>
-            <td>{data.quantity}</td>
-            <td>{data.buyPrice + data.extraCost} $</td>
-            <td>{data.sellPrice} $</td>
-            <td>
-              <button onClick={() => removeItem(index)}>Çıkar</button>
-            </td>
+    <div className="w-1/2 my-20">
+      <table className="w-full border-none rounded-md">
+        <thead>
+          <tr>
+            <th>Ürün Adı</th>
+            <th>Adet</th>
+            <th>Maaliyet</th>
+            <th>Satış Fiyatı</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {formData.map((data, index) => (
+            <tr key={index}>
+              <td>{data.productName}</td>
+              <td>{data.quantity}</td>
+              <td>{data.buyPrice + data.extraCost} $</td>
+              <td>{data.sellPrice} $</td>
+              <button
+                className="text-3xl text-red-600"
+                onClick={() => removeItem(index)}
+              >
+                <TiDeleteOutline />
+              </button>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 

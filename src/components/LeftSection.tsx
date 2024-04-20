@@ -5,7 +5,7 @@ import HeadersDown from "./Headers/HeadersDown";
 const LeftSection : FC = () => {
 
     return (
-        <div className="flex h-4/5 w-1/2 flex-col items-center">
+        <div className="flex h-4/5 w-1/2 flex-col m-auto">
             <HeadersUp />
             <HeadersDown />
         </div>
