@@ -26,6 +26,7 @@ const HeadersUp: FC = () => {
       sellPrice: Number(sellPrice),
     };
     setFormData([...formData, newFormData]);
+    localStorage.setItem('formData', JSON.stringify([...formData, newFormData]));
     setProductName('');
     setQuantity('');
     setBuyPrice('');
