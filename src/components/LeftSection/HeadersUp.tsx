@@ -5,19 +5,25 @@ import Input from "./HeadersUp/Input";
 
 const HeadersUp: FC = () => {
   const { formData, setFormData } = useFormDataContext();
-  const [productName, setProductName] = useState('');
-  const [quantity, setQuantity] = useState<number | ''>('');
-  const [buyPrice, setBuyPrice] = useState<number | ''>('');
-  const [extraCost, setExtraCost] = useState<number | ''>('');
-  const [sellPrice, setSellPrice] = useState<number | ''>('');
+  const [productName, setProductName] = useState("");
+  const [quantity, setQuantity] = useState<number | "">("");
+  const [buyPrice, setBuyPrice] = useState<number | "">("");
+  const [extraCost, setExtraCost] = useState<number | "">("");
+  const [sellPrice, setSellPrice] = useState<number | "">("");
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!productName || quantity === '' || buyPrice === '' || extraCost === '' || sellPrice === '') {
-      alert('Lütfen tüm alanları doldurun');
+    if (
+      !productName ||
+      quantity === "" ||
+      buyPrice === "" ||
+      extraCost === "" ||
+      sellPrice === ""
+    ) {
+      alert("Lütfen tüm alanları doldurun");
       return;
     }
-    
+
     const newFormData = {
       productName,
       quantity: Number(quantity),
@@ -26,16 +32,22 @@ const HeadersUp: FC = () => {
       sellPrice: Number(sellPrice),
     };
     setFormData([...formData, newFormData]);
-    localStorage.setItem('formData', JSON.stringify([...formData, newFormData]));
-    setProductName('');
-    setQuantity('');
-    setBuyPrice('');
-    setExtraCost('');
-    setSellPrice('');
+    localStorage.setItem(
+      "formData",
+      JSON.stringify([...formData, newFormData])
+    );
+    setProductName("");
+    setQuantity("");
+    setBuyPrice("");
+    setExtraCost("");
+    setSellPrice("");
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3 items-center p-5 h-2/5 text-center">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col items-center p-2 h-3/5 text-center"
+    >
       <div className="flex gap-5 w-11/12 h-2/4">
         <div className="w-5/6">
           <Desc htmlFor="productName">Ürün Adı</Desc>
@@ -59,7 +71,7 @@ const HeadersUp: FC = () => {
         </div>
       </div>
 
-      <div className="flex gap-5 w-4/5 h-3/6 justify-between">
+      <div className="flex gap-5 w-4/5 h-3/6 justify-between border-b-4">
         <div className="w-1/2">
           <Desc htmlFor="buyPrice">Alış Fiyatı</Desc>
           <Input
@@ -71,7 +83,7 @@ const HeadersUp: FC = () => {
           />
         </div>
         <div className="w-1/2">
-          <Desc htmlFor="extraCost">Ekstra Maaliyet</Desc>
+          <Desc htmlFor="extraCost">Ekstra Gider</Desc>
           <Input
             id="extraCost"
             name="extraCost"
@@ -91,7 +103,7 @@ const HeadersUp: FC = () => {
           />
         </div>
         <button
-          className="font-bold text-white bg-green-600 w-1/2 rounded-md m-auto h-2/5"
+          className="font-bold text-white bg-green-500 w-1/2 rounded-md my-6 h-2/6"
           type="submit"
         >
           EKLE

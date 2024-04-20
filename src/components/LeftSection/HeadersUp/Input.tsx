@@ -12,7 +12,7 @@ const Input: FC<InputProps> = ({ id, name, type, value, onChange }) => {
   return (
     <>
       <input
-        className="bg-blue-300 rounded-md px-2 w-full h-2/5 text-center"
+        className="bg-blue-300 rounded-md px-2 w-full h-2/6 text-center"
         min={0}
         id={id}
         name={name}

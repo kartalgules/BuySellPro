@@ -6,7 +6,7 @@ interface LabelProps {
 }
 
 const Desc : FC<LabelProps> = ({ htmlFor, children }) => {
-  return <label htmlFor={htmlFor} className="text-slate-500 font-bold w-full text-center">{children}</label>
+  return <label htmlFor={htmlFor} className="text-slate-500 font-bold w-full text-center text-sm">{children}</label>
 };
 
 export default Desc;

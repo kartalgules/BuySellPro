@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useFormDataContext } from "../context/FormContext";
-import { TiDeleteOutline } from "react-icons/ti";
+import { MdCancel } from "react-icons/md";
 
 const Table: React.FC = () => {
   const { formData, setFormData } = useFormDataContext();
@@ -21,29 +21,40 @@ const Table: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-1/2 my-20">
-      <table className="w-full border-none rounded-md">
+    <div className="w-3/5 mx-10 my-10">
+      <table className="w-full">
         <thead>
-          <tr>
-            <th>Ürün Adı</th>
-            <th>Adet</th>
-            <th>Maaliyet</th>
-            <th>Satış Fiyatı</th>
+          <tr className="text-sm text-slate-500">
+            <th className="w-6/12">Ürün Adı</th>
+            <th className="w-1/12">Adet</th>
+            <th className="w-1/12">Birim Gider</th>
+            <th className="w-1/12">Birim Satış</th>
+            <th className="w-1/12">Kâr %</th>
+            <th className="w-1/12">Kâr $</th>
+            <th className="w-1/12">Ciro</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="text-xs">
           {formData.map((data, index) => (
-            <tr key={index}>
+            <tr key={index} className="font-semibold">
               <td>{data.productName}</td>
               <td>{data.quantity}</td>
-              <td>{data.buyPrice + data.extraCost} $</td>
-              <td>{data.sellPrice} $</td>
-              <button
-                className="text-3xl text-red-600"
-                onClick={() => removeItem(index)}
-              >
-                <TiDeleteOutline />
-              </button>
+              <td>{data.buyPrice + data.extraCost}$</td>
+              <td>{data.sellPrice}$</td>
+              <td>
+                %
+                {((data.sellPrice - (data.buyPrice + data.extraCost)) /
+                  data.sellPrice) *
+                  100}
+              </td>
+              <td>{data.sellPrice - (data.buyPrice + data.extraCost)}$</td>
+              <td>{data.quantity * data.sellPrice}$</td>
+                <button
+                  className="text-3xl text-red-600 mx-2"
+                  onClick={() => removeItem(index)}
+                >
+                  <MdCancel />
+                </button>
             </tr>
           ))}
         </tbody>
