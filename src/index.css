@@ -2,7 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+    font-family: "Nunito", sans-serif;
+}
 th,td {
-    border: 1px solid #9ca3af;
+    border: 1px solid #b2b8c2;
     text-align: center;
 }

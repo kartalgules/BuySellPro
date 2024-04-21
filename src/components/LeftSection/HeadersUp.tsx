@@ -43,14 +43,14 @@ const HeadersUp: FC = () => {
     setSellPrice("");
   };
 
-  const inputStyle = "flex flex-col h-3/4 mx-auto justify-center w-3/4";
+  const inputStyle = "flex flex-col h-full mx-auto justify-center w-3/4";
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col items-center gap-1 h-3/6 text-center border-b-4"
+      className="flex flex-col items-center gap-1 h-2/12 text-center"
     >
-      <div className="flex w-11/12 h-1/3 px-2">
+      <div className="flex w-11/12 h-1/2 px-2">
         <div className="w-full h-full">
           <Desc htmlFor="productName">Ürün Adı</Desc>
           <Input
@@ -63,7 +63,7 @@ const HeadersUp: FC = () => {
         </div>
       </div>
 
-      <div className="flex w-5/6 h-1/2 mt-3 items-center">
+      <div className="flex w-5/6 h-1/2 items-center">
         <div className="flex gap-3 m-auto h-full">
           <div className={inputStyle}>
             <Desc htmlFor="buyPrice">Alış</Desc>
@@ -109,9 +109,9 @@ const HeadersUp: FC = () => {
             />
           </div>
 
-          <div className="flex w-max h-full items-center">
+          <div className="flex w-max h-full items-end">
             <button
-              className="w-14 mb-1 font-semibold rounded-md h-2/5 text-xs mt-2 text-white bg-green-500"
+              className="w-14 font-semibold rounded-md mb-0.5 h-3/6 text-xs text-white bg-green-500"
               type="submit"
             >
               EKLE

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useFormDataContext } from "../context/FormContext";
-import { MdCancel } from "react-icons/md";
+import { TiDeleteOutline } from "react-icons/ti";
 
 const Table: React.FC = () => {
   const { formData, setFormData } = useFormDataContext();
@@ -21,8 +21,8 @@ const Table: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-11/12 mt-5 mx-auto rounded-lg overflow-y-auto">
-      <table className="w-full bg-slate-200">
+    <div className="w-11/12 h-7/12 mb-10 mx-auto rounded-md overflow-y-auto">
+      <table className="bg-slate-200">
         <thead>
           <tr className="text-xs lg:text-sm bg-slate-300">
             <th className="w-8/12">Ürün Adı</th>
@@ -32,12 +32,12 @@ const Table: React.FC = () => {
             <th className="w-1/12">Kâr %</th>
             <th className="w-1/12">Kâr $</th>
             <th className="w-1/12">Ciro</th>
-            <th className="w-1/12">Sil</th>
+            <th className="w-1/12 text-red-500">Sil</th>
           </tr>
         </thead>
         <tbody className="text-xs">
           {formData.map((data, index) => (
-            <tr key={index} className="font-semibold">
+            <tr key={index} className="font-normal">
               <td>{data.productName}</td>
               <td className="hidden md:table-cell">{data.quantity}</td>
               <td className="hidden lg:table-cell">
@@ -66,7 +66,7 @@ const Table: React.FC = () => {
                   className="text-2xl text-red-500"
                   onClick={() => removeItem(index)}
                 >
-                  <MdCancel />
+                  <TiDeleteOutline />
                 </button>
               </td>
             </tr>

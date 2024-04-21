@@ -41,10 +41,10 @@ const HeadersDown: FC = () => {
   const style =
     "flex flex-col w-2/5 justify-center h-full border-slate-500 lg:border-l-2 border-x-2 rounded-md p-1 text-md md:text-lg xl:text-2xl";
   const sectionStyle =
-    "flex lg:flex-col justify-center w-4/6 lg:w-6/12 h-2/3 gap-5 flex-row items-center";
+    "flex lg:flex-col justify-center w-4/6 lg:w-6/12 h-2/3 gap-3 flex-row items-center";
 
   return (
-    <div className="w-full h-1/2 flex flex-col py-5 text-center gap-5 items-center font-bold border-b-4">
+    <div className="w-full h-2/12 flex flex-col py-5 text-center gap-3 items-center font-bold">
       <div className={sectionStyle}>
         <div className={style}>
           <h2>Gider</h2>
