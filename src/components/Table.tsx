@@ -21,7 +21,7 @@ const Table: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-11/12 mt-5 mx-auto h-4/6">
+    <div className="w-11/12 mt-5 mx-auto rounded-lg overflow-y-auto">
       <table className="w-full bg-slate-200">
         <thead>
           <tr className="text-xs lg:text-sm bg-slate-300">
@@ -63,7 +63,7 @@ const Table: React.FC = () => {
               <td>{data.quantity * data.sellPrice}$</td>
               <td>
                 <button
-                  className="text-2xl text-red-600"
+                  className="text-2xl text-red-500"
                   onClick={() => removeItem(index)}
                 >
                   <MdCancel />
