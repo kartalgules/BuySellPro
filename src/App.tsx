@@ -1,14 +1,13 @@
-import LeftSection from './components/LeftSection'
-import Table from './components/Table'
+import LeftSection from "./components/LeftSection";
+import Table from "./components/Table";
 
 function App() {
-
   return (
-    <div className='h-screen w-screen bg-gray-100 flex'>
+    <div className="h-screen w-full bg-slate-100 flex flex-col lg:flex-row ">
       <LeftSection />
       <Table />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

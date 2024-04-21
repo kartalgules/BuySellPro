@@ -21,27 +21,38 @@ const Table: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-3/5 mx-10 my-10">
-      <table className="w-full">
+    <div className="w-11/12 mt-5 mx-auto h-4/6">
+      <table className="w-full bg-slate-200">
         <thead>
-          <tr className="text-sm text-slate-500">
-            <th className="w-6/12">Ürün Adı</th>
-            <th className="w-1/12">Adet</th>
-            <th className="w-1/12">Birim Gider</th>
-            <th className="w-1/12">Birim Satış</th>
+          <tr className="text-xs lg:text-sm bg-slate-300">
+            <th className="w-8/12">Ürün Adı</th>
+            <th className="w-1/12 hidden md:table-cell">Adet</th>
+            <th className="w-1/12 hidden lg:table-cell">Birim Gider</th>
+            <th className="w-1/12 hidden 2xl:table-cell">Birim Satış</th>
             <th className="w-1/12">Kâr %</th>
             <th className="w-1/12">Kâr $</th>
             <th className="w-1/12">Ciro</th>
+            <th className="w-1/12">Sil</th>
           </tr>
         </thead>
         <tbody className="text-xs">
           {formData.map((data, index) => (
             <tr key={index} className="font-semibold">
               <td>{data.productName}</td>
-              <td>{data.quantity}</td>
-              <td>{data.buyPrice + data.extraCost}$</td>
-              <td>{data.sellPrice}$</td>
-              <td className={((data.sellPrice - (data.buyPrice + data.extraCost)) * 100) / (data.buyPrice + data.extraCost) > 20 ? 'text-green-700' : 'text-red-700'}>
+              <td className="hidden md:table-cell">{data.quantity}</td>
+              <td className="hidden lg:table-cell">
+                {data.buyPrice + data.extraCost}$
+              </td>
+              <td className="hidden 2xl:table-cell">{data.sellPrice}$</td>
+              <td
+                className={
+                  ((data.sellPrice - (data.buyPrice + data.extraCost)) * 100) /
+                    (data.buyPrice + data.extraCost) >
+                  20
+                    ? "text-green-500"
+                    : "text-red-500"
+                }
+              >
                 %
                 {(
                   ((data.sellPrice - (data.buyPrice + data.extraCost)) * 100) /
@@ -50,12 +61,14 @@ const Table: React.FC = () => {
               </td>
               <td>{data.sellPrice - (data.buyPrice + data.extraCost)}$</td>
               <td>{data.quantity * data.sellPrice}$</td>
-              <button
-                className="text-3xl text-red-600 mx-2"
-                onClick={() => removeItem(index)}
-              >
-                <MdCancel />
-              </button>
+              <td>
+                <button
+                  className="text-2xl text-red-600"
+                  onClick={() => removeItem(index)}
+                >
+                  <MdCancel />
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
