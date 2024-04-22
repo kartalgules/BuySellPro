@@ -35,7 +35,7 @@ BuySellPro, ticaret yapanlar için tasarlanmış bir ürün listeleme aracıdır
 
 ## Katkıda Bulunma
 
-- Projeyi forklayın (https://github.com/kullaniciadi/buysellpro-app/fork)
+- Projeyi forklayın (https://github.com/kartalgules/buysellpro-app/fork)
 - Yeni bir özellik eklemek için bir branch oluşturun: `git checkout -b yeni-özellik`
 - Değişikliklerinizi commit edin: `git commit -am 'Yeni özellik eklendi'`
 - Branch'ınızı push edin: `git push origin yeni-özellik`
@@ -82,7 +82,7 @@ BuySellPro is a product listing tool designed for traders. This application allo
 
 ## Contributing
 
-- Fork the project (https://github.com/username/buysellpro-app/fork)
+- Fork the project (https://github.com/kartalgules/buysellpro-app/fork)
 - Create a new branch for a new feature: `git checkout -b new-feature`
 - Commit your changes: `git commit -am 'Added a new feature'`
 - Push your branch: `git push origin new-feature`
