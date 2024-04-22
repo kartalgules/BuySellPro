@@ -48,7 +48,7 @@ const HeadersUp: FC = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col items-center gap-1 h-2/12 text-center"
+      className="flex flex-col items-center gap-1 h-2/12 lg:gap-3 lg:h-5/12 text-center lg:mb-5"
     >
       <div className="flex w-11/12 h-1/2 px-2">
         <div className="w-full h-full">
@@ -65,6 +65,16 @@ const HeadersUp: FC = () => {
 
       <div className="flex w-5/6 h-1/2 items-center">
         <div className="flex gap-3 m-auto h-full">
+          <div className={inputStyle}>
+            <Desc htmlFor="quantity">Adet</Desc>
+            <Input
+              id="quantity"
+              name="quantity"
+              type="number"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.valueAsNumber)}
+            />
+          </div>
           <div className={inputStyle}>
             <Desc htmlFor="buyPrice">Alış</Desc>
             <Input
@@ -84,17 +94,6 @@ const HeadersUp: FC = () => {
               type="number"
               value={extraCost}
               onChange={(e) => setExtraCost(e.target.valueAsNumber)}
-            />
-          </div>
-
-          <div className={inputStyle}>
-            <Desc htmlFor="quantity">Adet</Desc>
-            <Input
-              id="quantity"
-              name="quantity"
-              type="number"
-              value={quantity}
-              onChange={(e) => setQuantity(e.target.valueAsNumber)}
             />
           </div>
 

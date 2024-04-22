@@ -3,7 +3,7 @@ import Table from "./components/Table";
 
 function App() {
   return (
-    <div className="h-screen w-full flex flex-col lg:flex-row">
+    <div className="h-screen w-full flex flex-col xl:flex-row">
       <LeftSection />
       <Table />
     </div>
