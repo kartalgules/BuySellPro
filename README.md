@@ -17,7 +17,7 @@ BuySellPro, ticaret yapanlar için tasarlanmış bir ürün listeleme aracıdır
 
 ## Kurulum
 
-1. Repoyu klonlayın: `git clone https://github.com/kullaniciadi/buysellpro-app.git`
+1. Repoyu klonlayın: `git clone https://github.com/kartalgules/buysellpro-app.git`
 2. Proje dizinine gidin: `cd buysellpro-app`
 3. Bağımlılıkları yükleyin: `npm install`
 4. Uygulamayı başlatın: `npm start`
@@ -64,7 +64,7 @@ BuySellPro is a product listing tool designed for traders. This application allo
 
 ## Installation
 
-1. Clone the repo: `git clone https://github.com/username/buysellpro-app.git`
+1. Clone the repo: `git clone https://github.com/kartalgules/buysellpro-app.git`
 2. Navigate to the project directory: `cd buysellpro-app`
 3. Install dependencies: `npm install`
 4. Start the app: `npm start`
