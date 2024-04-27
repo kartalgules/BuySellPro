@@ -48,9 +48,9 @@ const HeadersUp: FC = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col items-center gap-1 h-2/12 lg:gap-3 lg:h-5/12 text-center lg:mb-5"
+      className="flex flex-col items-center gap-1 h-4/12 lg:gap-3 lg:h-5/12 text-center lg:mb-5"
     >
-      <div className="flex w-11/12 h-1/2 px-2">
+      <div className="flex w-11/12 h-3/5 px-2">
         <div className="w-full h-full">
           <Desc htmlFor="productName">Ürün Adı</Desc>
           <Input

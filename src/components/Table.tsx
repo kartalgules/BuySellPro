@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useFormDataContext } from "../context/FormContext";
 import { TiDeleteOutline } from "react-icons/ti";
+import ExportExcel from "./ExportExcel";
 
 const Table: React.FC = () => {
   const { formData, setFormData } = useFormDataContext();
@@ -26,6 +27,14 @@ const Table: React.FC = () => {
 
   return (
     <div className="flex flex-col justify-stretch w-11/12 xl:w-8/12 xl:m-5 h-7/12 mb-10 mx-auto rounded-md overflow-y-auto ">
+      <div className="w-4/5 h-1/12 pt-3 pb-3 text-center mx-auto">
+        <h1 className="font-semibold sm:text-sm md:text-md lg:text-xl p-2 border-b-4">
+          ÜRÜN LİSTESİ
+        </h1>
+      </div>
+      <div className="flex w-full justify-end">
+        <ExportExcel />
+      </div>
       <table className="bg-slate-200">
         <thead>
           <tr className="text-xs lg:text-sm bg-slate-300">
