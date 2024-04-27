@@ -17,7 +17,7 @@ BuySellPro, ticaret yapanlar için tasarlanmış bir ürün listeleme aracıdır
 
 ## Kurulum
 
-1. Repoyu klonlayın: `git clone https://github.com/kullaniciadi/buysellpro-app.git`
+1. Repoyu klonlayın: `git clone https://github.com/kartalgules/BuySellPro.git`
 2. Proje dizinine gidin: `cd buysellpro-app`
 3. Bağımlılıkları yükleyin: `npm install`
 4. Uygulamayı başlatın: `npm start`
@@ -35,7 +35,7 @@ BuySellPro, ticaret yapanlar için tasarlanmış bir ürün listeleme aracıdır
 
 ## Katkıda Bulunma
 
-- Projeyi forklayın (https://github.com/kullaniciadi/buysellpro-app/fork)
+- Projeyi forklayın (https://github.com/kartalgules/BuySellPro/fork)
 - Yeni bir özellik eklemek için bir branch oluşturun: `git checkout -b yeni-özellik`
 - Değişikliklerinizi commit edin: `git commit -am 'Yeni özellik eklendi'`
 - Branch'ınızı push edin: `git push origin yeni-özellik`
@@ -64,7 +64,7 @@ BuySellPro is a product listing tool designed for traders. This application allo
 
 ## Installation
 
-1. Clone the repo: `git clone https://github.com/username/buysellpro-app.git`
+1. Clone the repo: `git clone https://github.com/kartalgules/BuySellPro.git`
 2. Navigate to the project directory: `cd buysellpro-app`
 3. Install dependencies: `npm install`
 4. Start the app: `npm start`
@@ -82,7 +82,7 @@ BuySellPro is a product listing tool designed for traders. This application allo
 
 ## Contributing
 
-- Fork the project (https://github.com/username/buysellpro-app/fork)
+- Fork the project (https://github.com/kartalgules/BuySellPro/fork)
 - Create a new branch for a new feature: `git checkout -b new-feature`
 - Commit your changes: `git commit -am 'Added a new feature'`
 - Push your branch: `git push origin new-feature`
