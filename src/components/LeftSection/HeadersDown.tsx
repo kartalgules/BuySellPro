@@ -24,19 +24,10 @@ const HeadersDown: FC = () => {
     Array.isArray(formData) && formData.length > 0
       ? formData.reduce((acc, curr) => acc + curr.sellPrice * curr.quantity, 0)
       : 0;
-  const totalProfitmargin =
-    Array.isArray(formData) && formData.length > 0
-      ? Number(
-          (
-            formData.reduce(
-              (acc, curr) =>
-                acc +
-              (((curr.sellPrice - (curr.buyPrice + curr.extraCost)) / (curr.buyPrice + curr.extraCost)) * 100),
-              0
-            ) / formData.length
-          ).toFixed(2)
-        )
-      : 0;
+  const totalProfitmargin = Number((
+    ((totalCash - totalCost) * 100) /
+    totalCost
+  ).toFixed(2));
 
   const style =
     "flex flex-col w-2/5 lg:w-1/4 xl:w-3/5 justify-center h-full border-slate-500 lg:border-l-2 border-x-2 rounded-md p-1 text-md md:text-lg xl:text-2xl";
@@ -61,7 +52,7 @@ const HeadersDown: FC = () => {
         <div className={style}>
           <h2>Kâr</h2>
           <h1
-            className={`${totalProfit > 0 ? "text-green-500" : "text-red-500"}`}
+            className={`${totalProfit <= 0 && "text-red-500"} ${totalProfit >= 0 && "text-amber-700"} ${totalProfit >= 20 && "text-green-500"}`}
           >
             {totalProfit} $
           </h1>
@@ -70,9 +61,7 @@ const HeadersDown: FC = () => {
         <div className={style}>
           <h2>Kâr Marjı</h2>
           <h1
-            className={`${
-              totalProfitmargin > 20 ? "text-green-500" : "text-red-500"
-            }`}
+            className={`${totalProfitmargin <= 0 && "text-red-500"} ${totalProfit >= 0 && "text-amber-700"} ${totalProfit >= 20 && "text-green-500"}`}
           >
             %{totalProfitmargin}
           </h1>

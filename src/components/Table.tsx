@@ -18,13 +18,16 @@ const Table: React.FC = () => {
 
   useEffect(() => {
     const data = localStorage.getItem("formData");
-    data && setFormData(JSON.parse(data));
+    if (data) {
+      setFormData(JSON.parse(data));
+    }
   }, []);
 
   const truncateText = (text: string, maxLength: number) => {
     return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
   };
 
+  
   return (
     <div className="flex flex-col justify-stretch w-11/12 xl:w-8/12 xl:m-5 h-7/12 mb-10 mx-auto rounded-md overflow-y-auto ">
       <div className="w-4/5 h-1/12 pt-3 pb-3 text-center mx-auto">
@@ -59,9 +62,9 @@ const Table: React.FC = () => {
               <td className="hidden 2xl:table-cell">{data.sellPrice}$</td>
               <td
                 className={
-                  ((data.sellPrice - (data.buyPrice + data.extraCost)) /
+                  (((data.sellPrice - (data.buyPrice + data.extraCost)) /
                     (data.buyPrice + data.extraCost)) *
-                    100 >
+                    100) >
                   20
                     ? "text-green-500"
                     : "text-red-500"
