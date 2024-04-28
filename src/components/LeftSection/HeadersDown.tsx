@@ -29,6 +29,8 @@ const HeadersDown: FC = () => {
     totalCost
   ).toFixed(2));
 
+  // const formattedProfitPercentage = profitPercentage.replace(/\.00$/, '');
+
   const style =
     "flex flex-col w-2/5 lg:w-1/4 xl:w-3/5 justify-center h-full border-slate-500 lg:border-l-2 border-x-2 rounded-md p-1 text-md md:text-lg xl:text-2xl";
   const sectionStyle =
@@ -39,12 +41,12 @@ const HeadersDown: FC = () => {
       <div className={`${sectionStyle} items-end`}>
         <div className={style}>
           <h2>Gider</h2>
-          <h1 className="text-red-600">{totalCost} $</h1>
+          <h1 className="text-red-600">{totalCost.toFixed(2).replace(/\.00$/, '')} $</h1>
         </div>
 
         <div className={style}>
           <h2>Kasa</h2>
-          <h1 className="text-blue-700">{totalCash} $</h1>
+          <h1 className="text-blue-700">{totalCash.toFixed(2).replace(/\.00$/, '')} $</h1>
         </div>
       </div>
 
@@ -54,7 +56,7 @@ const HeadersDown: FC = () => {
           <h1
             className={`${totalProfit <= 0 && "text-red-500"} ${totalProfit >= 0 && "text-amber-700"} ${totalProfit >= 20 && "text-green-500"}`}
           >
-            {totalProfit} $
+            {(totalProfit.toFixed(2)).replace(/\.00$/, '')} $
           </h1>
         </div>
 
@@ -63,7 +65,7 @@ const HeadersDown: FC = () => {
           <h1
             className={`${totalProfitmargin <= 0 && "text-red-500"} ${totalProfit >= 0 && "text-amber-700"} ${totalProfit >= 20 && "text-green-500"}`}
           >
-            %{totalProfitmargin}
+            %{(totalProfitmargin.toFixed(2)).replace(/\.00$/, '')}
           </h1>
         </div>
       </div>

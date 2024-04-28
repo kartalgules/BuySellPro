@@ -72,7 +72,7 @@ const HeadersUp: FC = () => {
               name="quantity"
               type="number"
               value={quantity}
-              onChange={(e) => setQuantity(e.target.valueAsNumber)}
+              onChange={(e) => setQuantity(parseFloat(e.target.value))}
             />
           </div>
           <div className={inputStyle}>
@@ -80,9 +80,10 @@ const HeadersUp: FC = () => {
             <Input
               id="buyPrice"
               name="buyPrice"
+              step="0.01"
               type="number"
               value={buyPrice}
-              onChange={(e) => setBuyPrice(e.target.valueAsNumber)}
+              onChange={(e) => setBuyPrice(parseFloat(e.target.value))}
             />
           </div>
 
@@ -91,9 +92,10 @@ const HeadersUp: FC = () => {
             <Input
               id="extraCost"
               name="extraCost"
+              step="0.01"
               type="number"
               value={extraCost}
-              onChange={(e) => setExtraCost(e.target.valueAsNumber)}
+              onChange={(e) => setExtraCost(parseFloat(e.target.value))}
             />
           </div>
 
@@ -102,9 +104,10 @@ const HeadersUp: FC = () => {
             <Input
               id="sellPrice"
               name="sellPrice"
+              step="0.01"
               type="number"
               value={sellPrice}
-              onChange={(e) => setSellPrice(e.target.valueAsNumber)}
+              onChange={(e) => setSellPrice(parseFloat(e.target.value))}
             />
           </div>
 

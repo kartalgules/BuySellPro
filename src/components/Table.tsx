@@ -57,9 +57,9 @@ const Table: React.FC = () => {
               <td>{truncateText(data.productName, 50)}</td>
               <td className="hidden md:table-cell">{data.quantity}</td>
               <td className="hidden lg:table-cell">
-                {data.buyPrice + data.extraCost}$
+                {(data.buyPrice + data.extraCost).toFixed(2).replace(/\.00$/, '')}$
               </td>
-              <td className="hidden 2xl:table-cell">{data.sellPrice}$</td>
+              <td className="hidden 2xl:table-cell">{data.sellPrice.toFixed(2).replace(/\.00$/, '')}$</td>
               <td
                 className={
                   (((data.sellPrice - (data.buyPrice + data.extraCost)) /
@@ -75,10 +75,10 @@ const Table: React.FC = () => {
                   ((data.sellPrice - (data.buyPrice + data.extraCost)) /
                     (data.buyPrice + data.extraCost)) *
                   100
-                ).toFixed(2)}
+                ).toFixed(2).replace(/\.00$/, '')}
               </td>
-              <td>{data.sellPrice - (data.buyPrice + data.extraCost)}$</td>
-              <td>{data.quantity * data.sellPrice}$</td>
+              <td>{(data.sellPrice - (data.buyPrice + data.extraCost)).toFixed(2).replace(/\.00$/, '')}$</td>
+              <td>{(data.quantity * data.sellPrice).toFixed(2).replace(/\.00$/, '')}$</td>
               <td>
                 <button
                   className="text-2xl text-red-500"

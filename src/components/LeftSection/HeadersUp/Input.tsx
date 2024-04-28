@@ -5,10 +5,11 @@ interface InputProps {
   name: string;
   type: string;
   value: string | number;
+  step?: string
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input: FC<InputProps> = ({ id, name, type, value, onChange }) => {
+const Input: FC<InputProps> = ({ id, name, type, value, onChange, step }) => {
   return (
     <>
       <input
@@ -17,6 +18,7 @@ const Input: FC<InputProps> = ({ id, name, type, value, onChange }) => {
         id={id}
         name={name}
         type={type}
+        step={step}
         value={value}
         onChange={onChange}
       />
