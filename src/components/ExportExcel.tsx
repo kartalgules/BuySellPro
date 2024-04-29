@@ -1,24 +1,34 @@
+import { useTranslation } from "react-i18next";
 import { useFormDataContext } from "../context/FormContext";
 import ExcelJS from "exceljs";
 
 const ExportExcel = () => {
   const { formData } = useFormDataContext();
+  const { t } = useTranslation();
 
   const exportToExcel = async () => {
     const workbook = new ExcelJS.Workbook();
     const worksheet = workbook.addWorksheet("Sheet1");
 
     const headers = [
-      { header: "Ürün Adı", key: "productName", width: 50 },
-      { header: "Adet", key: "quantity", width: 10 },
-      { header: "Alış", key: "buyPrice", width: 20 },
-      { header: "Ekstra Gider", key: "extraCost", width: 20 },
-      { header: "Gider", key: "cost", width: 20 },
-      { header: "Birim Satış", key: "sellPrice", width: 20 },
-      { header: "Kâr %", key: "profit", width: 20 },
-      { header: "Kâr $", key: "profitPrice", width: 20 },
-      { header: "Kasa", key: "case", width: 20 },
+      { header: t("Urun_Adi"), key: "productName", width: 50 },
+      { header: t("adet"), key: "quantity", width: 10 },
+      { header: t("birimGider"), key: "buyPrice", width: 20 },
+      { header: t("ekstraGider"), key: "extraCost", width: 20 },
+      { header: t("birimGider"), key: "cost", width: 20 },
+      { header: t("birimSatış"), key: "sellPrice", width: 20 },
+      { header: `${t("kâr")} %`, key: "profit", width: 20 },
+      { header: `${t("kâr")} $`, key: "profitPrice", width: 20 },
+      { header: t("kasa"), key: "case", width: 20 },
     ];
+
+    for (let i = 1; i <= headers.length; i++) {
+      worksheet.getColumn(i).fill = {
+        type: "pattern",
+        pattern: "solid",
+        fgColor: { argb: "FFFFCC00" }
+      };
+    }
     worksheet.getRow(1).font = { bold: true };
     worksheet.eachRow({ includeEmpty: true }, (row, _rowNumber) => {
       row.alignment = {
@@ -33,14 +43,7 @@ const ExportExcel = () => {
         horizontal: "center",
       };
     });
-    worksheet.columns = headers;
-    for (let i = 1; i <= Math.min(headers.length, 16384); i++) {
-      worksheet.getColumn(i).fill = {
-        type: "pattern",
-        pattern: "solid",
-        fgColor: { argb: "FFFFCC00" },
-      };
-    }
+
     worksheet.eachRow({ includeEmpty: false }, (row) => {
       row.eachCell({ includeEmpty: false }, (cell) => {
         if (
@@ -50,7 +53,7 @@ const ExportExcel = () => {
           "profit" in cell.value
         ) {
           const { profit } = cell.value as { profit: number };
-          const color: string = profit >= 20 ? "00FF00" : "FF0000"; // Yeşil veya kırmızı
+          const color: string = profit >= 20 ? "00FF00" : "FF0000";
           cell.fill = {
             type: "pattern",
             pattern: "solid",
@@ -60,7 +63,16 @@ const ExportExcel = () => {
       });
     });
 
-    worksheet.columns = headers;
+    headers.forEach((header, index) => {
+      const col = worksheet.getColumn(index + 1);
+      col.header = header.header;
+      col.key = header.key;
+      col.width = header.width;
+      col.alignment = {
+        vertical: "middle",
+        horizontal: "center",
+      };
+    });
     worksheet.addRows(
       formData.map((data, index) => ({
         id: index,
@@ -102,7 +114,6 @@ const ExportExcel = () => {
       });
     });
 
-    // Dosyayı indirin
     await workbook.xlsx.writeBuffer().then((buffer) => {
       const blob = new Blob([buffer], {
         type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
@@ -122,7 +133,7 @@ const ExportExcel = () => {
       className="bg-slate-300 mb-3 w-36 h-8 rounded-md text-sm"
       onClick={exportToExcel}
     >
-      Excel'e Aktar
+      {t("excel")}
     </button>
   );
 };

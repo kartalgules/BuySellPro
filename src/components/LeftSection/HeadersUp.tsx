@@ -2,6 +2,7 @@ import { FormEvent, FC, useState } from "react";
 import { useFormDataContext } from "../../context/FormContext";
 import Desc from "./HeadersUp/Desc";
 import Input from "./HeadersUp/Input";
+import { useTranslation } from "react-i18next";
 
 const HeadersUp: FC = () => {
   const { formData, setFormData } = useFormDataContext();
@@ -10,6 +11,7 @@ const HeadersUp: FC = () => {
   const [buyPrice, setBuyPrice] = useState<number | "">("");
   const [extraCost, setExtraCost] = useState<number | "">("");
   const [sellPrice, setSellPrice] = useState<number | "">("");
+  const { t } = useTranslation();
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -52,7 +54,7 @@ const HeadersUp: FC = () => {
     >
       <div className="flex w-11/12 h-3/5 px-2">
         <div className="w-full h-full">
-          <Desc htmlFor="productName">Ürün Adı</Desc>
+          <Desc htmlFor="productName">{t('Urun_Adi')}</Desc>
           <Input
             id="productName"
             name="productName"
@@ -66,7 +68,7 @@ const HeadersUp: FC = () => {
       <div className="flex w-5/6 h-1/2 items-center">
         <div className="flex gap-3 m-auto h-full">
           <div className={inputStyle}>
-            <Desc htmlFor="quantity">Adet</Desc>
+            <Desc htmlFor="quantity">{t('adet')}</Desc>
             <Input
               id="quantity"
               name="quantity"
@@ -76,7 +78,7 @@ const HeadersUp: FC = () => {
             />
           </div>
           <div className={inputStyle}>
-            <Desc htmlFor="buyPrice">Alış</Desc>
+            <Desc htmlFor="buyPrice">{t('alış')}</Desc>
             <Input
               id="buyPrice"
               name="buyPrice"
@@ -88,7 +90,7 @@ const HeadersUp: FC = () => {
           </div>
 
           <div className={inputStyle}>
-            <Desc htmlFor="extraCost">Ekstra</Desc>
+            <Desc htmlFor="extraCost">{t('ekstraGider')}</Desc>
             <Input
               id="extraCost"
               name="extraCost"
@@ -100,7 +102,7 @@ const HeadersUp: FC = () => {
           </div>
 
           <div className={inputStyle}>
-            <Desc htmlFor="sellPrice">Satış</Desc>
+            <Desc htmlFor="sellPrice">{t('birimSatış')}</Desc>
             <Input
               id="sellPrice"
               name="sellPrice"
@@ -116,7 +118,7 @@ const HeadersUp: FC = () => {
               className="w-14 font-semibold rounded-md mb-0.5 h-3/6 text-xs text-white bg-green-500"
               type="submit"
             >
-              EKLE
+              {t('ekle')}
             </button>
           </div>
         </div>
