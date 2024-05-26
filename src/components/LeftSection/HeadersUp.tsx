@@ -50,10 +50,11 @@ const HeadersUp: FC = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col items-center gap-1 h-4/12 lg:gap-3 lg:h-5/12 text-center lg:mb-5"
+      className="flex flex-col items-center gap-1 lg:gap-3 h-1/5 xl:h-1/3 text-center lg:mb-5"
     >
-      <div className="flex w-11/12 h-3/5 px-2">
+      <div className="flex w-11/12 h-2/4 px-2">
         <div className="w-full h-full">
+          <div className={inputStyle}>
           <Desc htmlFor="productName">{t('Urun_Adi')}</Desc>
           <Input
             id="productName"
@@ -62,10 +63,11 @@ const HeadersUp: FC = () => {
             value={productName}
             onChange={(e) => setProductName(e.target.value)}
           />
+          </div>
         </div>
       </div>
 
-      <div className="flex w-5/6 h-1/2 items-center">
+      <div className="flex w-11/12 h-2/4 px-2">
         <div className="flex gap-3 m-auto h-full">
           <div className={inputStyle}>
             <Desc htmlFor="quantity">{t('adet')}</Desc>
@@ -115,7 +117,7 @@ const HeadersUp: FC = () => {
 
           <div className="flex w-max h-full items-end">
             <button
-              className="w-14 font-semibold rounded-md mb-0.5 h-3/6 text-xs text-white bg-green-500"
+              className="w-14 font-semibold rounded-md mb-1 h-3/6 text-xs text-white bg-green-500"
               type="submit"
             >
               {t('ekle')}

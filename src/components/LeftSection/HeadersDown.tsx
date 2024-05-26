@@ -33,8 +33,8 @@ const HeadersDown: FC = () => {
     "flex lg:flex-col justify-center w-4/6 lg:w-6/12 h-2/3 gap-3 flex-row xl:items-center";
 
   return (
-    <div className="w-full h-2/12 lg:m-5 flex flex-col lg:flex-row lg:h-6/12 py-5 lg:py-3 text-center gap-3 items-center font-bold">
-      <div className={`${sectionStyle} items-end`}>
+    <div className="w-full h-2/12 lg:m-5 flex flex-col lg:flex-row lg:h-6/12 py-10 lg:py-3 gap-5 text-center items-center font-bold">
+      <div className={`${sectionStyle} items-end gap-5`}>
         <div className={style}>
           <h2>{t('gider')}</h2>
           <h1 className="text-red-600">
@@ -50,7 +50,7 @@ const HeadersDown: FC = () => {
         </div>
       </div>
 
-      <div className={sectionStyle}>
+      <div className={`${sectionStyle} gap-5`}>
         <div className={style}>
           <h2>{t('kâr')}</h2>
           <h1
