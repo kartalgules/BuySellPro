@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 import LeftSection from "./components/LeftSection";
 import Table from "./components/Table";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import CurrencyConverter from "./components/CurrencyConverter";
 
 function App() {

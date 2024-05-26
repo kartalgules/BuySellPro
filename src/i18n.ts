@@ -32,7 +32,8 @@ i18n
           excel : "Excel'e Aktar",
           ekstraGider : "Ekstra Gider",
           alış : "Alış",
-          ekle : "EKLE"
+          ekle : "EKLE",
+          para : "Para Birimi"
 
         },
       },
@@ -54,7 +55,8 @@ i18n
           excel : "Export to Excel",
           ekstraGider : "Extra Cost",
           alış : "Buying",
-          ekle : "ADD"
+          ekle : "ADD",
+          para : "Currency"
 
         }
       }
