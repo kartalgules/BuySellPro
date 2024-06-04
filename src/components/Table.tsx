@@ -35,9 +35,9 @@ const Table: React.FC = () => {
     return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
   };
   return (
-    <div className="flex flex-col justify-stretch w-11/12 xl:w-6/12 xl:m-5 h-7/12 mb-10 mx-auto rounded-md overflow-y-auto ">
-      <div className="w-4/5 h-1/12 pt-3 pb-3 text-center mx-auto">
-        <h1 className="font-semibold sm:text-sm md:text-md lg:text-xl p-2 border-b-4">
+    <div className="flex flex-col justify-stretch w-11/12 xl:w-6/12 xl:m-5 h-full mb-10 mx-auto rounded-md overflow-y-auto md:mt-16">
+      <div className="w-2/3 text-center mx-auto mb-5 ">
+        <h1 className="font-semibold sm:text-sm md:text-xl p-3.5 border-b-4">
           {t("urun_listesi")}
         </h1>
       </div>

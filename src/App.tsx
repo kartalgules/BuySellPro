@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 import LeftSection from "./components/LeftSection";
 import Table from "./components/Table";
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./components/Navbar";
 import CurrencyConverter from "./components/CurrencyConverter";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
   }, []);
 
   return (
-    <div className="h-screen w-full">
+    <div className="h-full w-full">
       <Navbar />
       <div className="h-full w-full flex flex-col xl:flex-row">
         <div className="h-1/2 w-full xl:w-6/12 flex flex-col">

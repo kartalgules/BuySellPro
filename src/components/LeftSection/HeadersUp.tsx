@@ -50,8 +50,7 @@ const HeadersUp: FC = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col items-center gap-1 lg:gap-3 h-1/5 xl:h-1/3 text-center lg:mb-5"
-    >
+      className="flex flex-col items-center gap-1 lg:gap-2 lg:h-1/2 h-2/6 text-center">
       <div className="flex w-11/12 h-2/4 px-2">
         <div className="w-full h-full">
           <div className={inputStyle}>

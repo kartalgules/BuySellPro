@@ -33,8 +33,9 @@ i18n
           ekstraGider : "Ekstra Gider",
           alış : "Alış",
           ekle : "EKLE",
-          para : "Para Birimi"
-
+          para : "Para Birimi",
+          kurİnput : "Çevirmek istediğiniz miktarı giriniz..",
+          cevirici : "PARA BİRİMİ ÇEVİRİCİ"
         },
       },
       en : {
@@ -56,7 +57,9 @@ i18n
           ekstraGider : "Extra Cost",
           alış : "Buying",
           ekle : "ADD",
-          para : "Currency"
+          para : "Currency",
+          kurİnput : "Enter the amount you want to convert..",
+          cevirici : "CURRENCY CONVERTER"
 
         }
       }
