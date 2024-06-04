@@ -48,7 +48,7 @@ const CurrencyConverter = () => {
 
         <TbArrowsExchange2 className="text-3xl" />
 
-        <h1 className="w-2/5 text-md md:text-2xl">{((input ? input : 0) * Selling).toFixed(2)} TL</h1>
+        <h1 className="w-2/5 text-md md:text-2xl text-green-500">{((input ? input : 0) * Selling).toFixed(2)} TL</h1>
 
 
       </div>

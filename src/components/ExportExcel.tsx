@@ -57,13 +57,13 @@ const ExportExcel = () => {
         return {
           productName: data.productName,
           quantity: data.quantity,
-          buyPrice: `$${buyPrice.toFixed(2)}`,
-          extraCost: `$${extraCost.toFixed(2)}`,
-          cost: `$${cost.toFixed(2)}`,
-          sellPrice: `$${sellPrice.toFixed(2)}`,
+          buyPrice: `$${buyPrice}`,
+          extraCost: `$${extraCost}`,
+          cost: `$${cost}`,
+          sellPrice: `$${sellPrice}`,
           profit: profit,
-          profitPrice: `$${profitPrice.toFixed(2)}`,
-          case: `$${caseValue.toFixed(2)}`,
+          profitPrice: `$${profitPrice}`,
+          case: `$${caseValue}`,
         };
       })
     );
@@ -74,7 +74,9 @@ const ExportExcel = () => {
           vertical: "middle",
           horizontal: "center",
         };
-        if (colNumber > 1 && colNumber !== 7) {
+        if (colNumber === 2) {
+          cell.numFmt = '0';
+        }else if (colNumber > 1 && colNumber !== 7) {
           cell.numFmt = colNumber === 6 ? '$#,##0.00' : '$#,##0.00';
         }
         if (cell.address.startsWith('G') && row.number > 1) {
@@ -83,6 +85,8 @@ const ExportExcel = () => {
             cell.font = { color: { argb: 'FFFF0000' } };
           } else if (profitValue < 15) {
             cell.font = { color: { argb: 'FFFFFF00' } };
+          }else {
+            cell.font = { color: { argb: 'FF65A30D'} }
           }
           cell.value = `${profitValue.toFixed(2)}%`;
         }
