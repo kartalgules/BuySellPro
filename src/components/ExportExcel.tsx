@@ -115,7 +115,7 @@ const ExportExcel = () => {
   };
   return (
     <button
-      className="bg-slate-300 mb-3 w-36 h-8 rounded-md text-sm"
+      className="bg-slate-300 mb-3 w-36 h-8 rounded-md text-xs"
       onClick={exportToExcel}
     >
       {t("excel")}

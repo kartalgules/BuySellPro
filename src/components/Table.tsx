@@ -35,9 +35,9 @@ const Table: React.FC = () => {
     return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
   };
   return (
-    <div className="flex flex-col justify-stretch w-11/12 xl:w-6/12 xl:m-5 h-full mb-10 mx-auto rounded-md overflow-y-auto md:mt-16">
+    <div className="flex flex-col justify-stretch w-11/12 xl:w-6/12 xl:m-5 h-full mt-3 mb-10 mx-auto rounded-md  overflow-y-auto md:mt-16">
       <div className="w-2/3 text-center mx-auto mb-5 ">
-        <h1 className="font-semibold sm:text-sm md:text-xl p-3.5 border-b-4">
+        <h1 className="font-semibold sm:text-sm md:text-xl py-1 border-b-4">
           {t("urun_listesi")}
         </h1>
       </div>
@@ -58,7 +58,7 @@ const Table: React.FC = () => {
             <th className="w-1/12">{t("kâr")} %</th>
             <th className="w-1/12">{t("kâr")} $</th>
             <th className="w-1/12">{t("kasa")}</th>
-            <th className="w-min text-red-500">{t("sil")}</th>
+            <th className="w-1/12 text-red-500">{t("sil")}</th>
           </tr>
         </thead>
         <tbody className="text-xs">
@@ -70,11 +70,11 @@ const Table: React.FC = () => {
                 {(data.buyPrice + data.extraCost)
                   .toFixed(2)
                   .replace(/\.00$/, "")}
-                <span> $</span>
+                <span>$</span>
               </td>
               <td className="hidden 2xl:table-cell">
                 {data.sellPrice.toFixed(2).replace(/\.00$/, "")}
-                <span> $</span>
+                <span>$</span>
               </td> 
               <td
                 className={
@@ -86,7 +86,7 @@ const Table: React.FC = () => {
                     : "text-red-500"
                 }
               >
-                <span>% </span>
+                <span>%</span>
                 {(
                   ((data.sellPrice - (data.buyPrice + data.extraCost)) /
                     (data.buyPrice + data.extraCost)) *
@@ -99,13 +99,13 @@ const Table: React.FC = () => {
                 {(data.sellPrice - (data.buyPrice + data.extraCost))
                   .toFixed(2)
                   .replace(/\.00$/, "")}
-                <span> $</span>
+                <span>$</span>
               </td>
               <td>
                 {(data.quantity * data.sellPrice)
                   .toFixed(2)
                   .replace(/\.00$/, "")}
-                <span> $</span>
+                <span>$</span>
               </td>
               <td>
                 <button

@@ -66,7 +66,7 @@ const HeadersUp: FC = () => {
         </div>
       </div>
 
-      <div className="flex w-11/12 h-2/4 px-2">
+      <div className="flex w-11/12 h-3/4 md:h-2/4  px-2">
         <div className="flex gap-3 m-auto h-full">
           <div className={inputStyle}>
             <Desc htmlFor="quantity">{t('adet')}</Desc>
@@ -114,9 +114,9 @@ const HeadersUp: FC = () => {
             />
           </div>
 
-          <div className="flex w-max h-full items-end">
+          <div className="flex w-max items-end">
             <button
-              className="w-14 font-semibold rounded-md mb-1 h-3/6 text-xs text-white bg-green-500"
+              className="w-14  font-semibold rounded-md  h-3/5 text-xs text-white bg-green-500"
               type="submit"
             >
               {t('ekle')}

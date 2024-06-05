@@ -27,20 +27,20 @@ const CurrencyConverter = () => {
   }, []);
   const Selling = Number(Number(data?.Selling).toFixed(2))
   return (
-    <div className="flex flex-col w-full m-auto text-center gap-10 py-10 font-semibold border-b-4">
+    <div className="flex flex-col w-full m-auto text-center gap-6 py-4 font-semibold border-b-4">
 
 
-      <div className="w-1/2 pb-3 m-auto font-semibold sm:text-sm md:text-xl border-b-4">
+      <div className="w-1/2 pb-1 m-auto font-semibold sm:text-sm md:text-xl border-b-4">
         <h1>{t("cevirici")}</h1>
       </div>
 
 
-      <div className="h-1/3 w-4/6 gap-1 flex justify-center items-center m-auto">
+      <div className="h-1/3 px-3 w-full gap-1 flex justify-center items-center">
 
         <div className="w-full">
-          <input type="number" className="text-xs h-10 rounded-md text-center sm:w-4/5 w-5/6 px-2 mr-1 bg-slate-200" placeholder={t("kurİnput")} onChange={(e) => setInput(Number(e.target.value))} />
+          <input type="number" className="text-xs h-10 rounded-md text-center w-4/5 md:w-5/6 px-2 mr-1 bg-slate-200" placeholder={t("kurİnput")} onChange={(e) => setInput(Number(e.target.value))} />
  
-          <select className="text-md text-center md:text-xl">
+          <select className="text-md text-center md:text-xl items-end">
             <option value="USD">$</option>
             <option value="TL">TL</option>
           </select>
