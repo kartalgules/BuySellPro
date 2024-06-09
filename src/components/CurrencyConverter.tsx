@@ -47,7 +47,7 @@ const CurrencyConverter = () => {
       <div className="h-1/3 px-3 w-full gap-1 flex justify-center items-center">
 
         <div className="w-full">
-          <input type="number" className="text-xs h-10 rounded-md text-center w-3/5 md:w-5/6 px-2 mr-1 bg-slate-200" placeholder={t("kurİnput")} onChange={(e) => setInput(parseFloat(e.target.value))} />
+          <input type="number" className="text-xs md:text-sm h-9 rounded-md text-center w-3/5 md:w-5/6 px-2 mr-1 bg-slate-200" placeholder={t("kurİnput")} onChange={(e) => setInput(parseFloat(e.target.value))} />
  
           <select className="text-md text-center md:text-xl items-end">
             <option value="USD">$</option>
