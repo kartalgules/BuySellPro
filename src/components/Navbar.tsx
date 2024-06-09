@@ -17,7 +17,7 @@ const Navbar = () => {
       lang && await i18n.changeLanguage(lang)
     }
     return (
-      <li className="flex h-7 w-20 md:w-24 p-2 md:p-3 cursor-pointer items-center hover:bg-slate-200 rounded-lg" data-lang={lang} onClick={langHandleChance}>
+      <li className="flex h-7 w-24 md:w-full p-2 md:p-4 cursor-pointer items-center hover:bg-slate-200 rounded-lg" data-lang={lang} onClick={langHandleChance}>
         <i className={`fi fi-${lang} text-md mr-2 rounded-lg`}></i>
         <span>{content}</span>
       </li>
