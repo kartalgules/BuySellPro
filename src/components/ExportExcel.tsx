@@ -80,7 +80,7 @@ const ExportExcel = () => {
           if (profitValue < 0) {
             cell.font = { color: { argb: 'FFFF0000' } };
           } else if (profitValue < 15) {
-            cell.font = { color: { argb: 'FFFFFF00' } };
+            cell.font = { color: { argb: 'FFFFA500' } };
           } else {
             cell.font = { color: { argb: 'FF65A30D'} };
           }
