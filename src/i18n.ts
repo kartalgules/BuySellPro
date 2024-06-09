@@ -43,7 +43,7 @@ i18n
           Urun_Adi : "Product Name",
           tema : "Theme",
           dil : "Language",
-          adet : "Piece",
+          adet : "Quantity",
           birimGider : "Cost",
           birimSatış : "Price",
           kâr : "Profit",
