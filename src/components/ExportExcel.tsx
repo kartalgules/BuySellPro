@@ -21,8 +21,6 @@ const ExportExcel = () => {
     const headers = [
       { header: t("Urun_Adi"), key: "productName", width: 20 },
       { header: t("adet"), key: "quantity", width: 10 },
-      { header: t("birimGider"), key: "buyPrice", width: 15 },
-      { header: t("ekstraGider"), key: "extraCost", width: 15 },
       { header: t("birimGider"), key: "cost", width: 15 },
       { header: t("birimSatış"), key: "sellPrice", width: 15 },
       { header: `${t("kâr")} %`, key: "profit", width: 15 },
@@ -57,8 +55,6 @@ const ExportExcel = () => {
         return {
           productName: data.productName,
           quantity: data.quantity,
-          buyPrice: `$${buyPrice}`,
-          extraCost: `$${extraCost}`,
           cost: `$${cost}`,
           sellPrice: `$${sellPrice}`,
           profit: profit,
@@ -76,17 +72,17 @@ const ExportExcel = () => {
         };
         if (colNumber === 2) {
           cell.numFmt = '0';
-        }else if (colNumber > 1 && colNumber !== 7) {
-          cell.numFmt = colNumber === 6 ? '$#,##0.00' : '$#,##0.00';
+        } else if (colNumber > 1 && colNumber !== 5) {
+          cell.numFmt = '$#,##0.00';
         }
-        if (cell.address.startsWith('G') && row.number > 1) {
+        if (colNumber === 5 && row.number > 1) {
           const profitValue = parseFloat(cell.value as string);
           if (profitValue < 0) {
             cell.font = { color: { argb: 'FFFF0000' } };
           } else if (profitValue < 15) {
             cell.font = { color: { argb: 'FFFFFF00' } };
-          }else {
-            cell.font = { color: { argb: 'FF65A30D'} }
+          } else {
+            cell.font = { color: { argb: 'FF65A30D'} };
           }
           cell.value = `${profitValue.toFixed(2)}%`;
         }

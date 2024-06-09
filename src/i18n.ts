@@ -51,7 +51,7 @@ i18n
           sil : "Delete",
           urun_hesaplama : "PRODUCT CALCULATION",
           gider : "Expense",
-          kârMarjı : "Profit Margin",
+          kârMarjı : "Margin",
           urun_listesi : "PRODUCT LİST",
           excel : "Export to Excel",
           ekstraGider : "Cost",

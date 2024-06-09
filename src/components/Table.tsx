@@ -1,16 +1,16 @@
 import { useEffect } from "react";
 import { useFormDataContext } from "../context/FormContext";
-import { TiDeleteOutline } from "react-icons/ti";
 import ExportExcel from "./ExportExcel";
 import { useTranslation } from "react-i18next";
+import deletebtn from "../../public/icons/trash.png"
 
 const Table: React.FC = () => {
   interface newData {
-    buyPrice:number;
-    extraCost:number;
-    productName:string;
-    quantity:number;
-    sellPrice:number
+    buyPrice: number;
+    extraCost: number;
+    productName: string;
+    quantity: number;
+    sellPrice: number
   }
   const { formData, setFormData } = useFormDataContext();
   const { t } = useTranslation();
@@ -44,9 +44,9 @@ const Table: React.FC = () => {
       <div className="flex w-full justify-end">
         <ExportExcel />
       </div>
-      <table className="bg-slate-200">
+      <table className="bg-slate-200 text-xs md:text-sm lg:text-base">
         <thead>
-          <tr className="text-xs lg:text-sm bg-slate-300">
+          <tr className=" bg-slate-300">
             <th className="w-7/12 md:w-8/12 lg:w-6/12 sm:w-9/12">
               {t("Urun_Adi")}
             </th>
@@ -75,13 +75,13 @@ const Table: React.FC = () => {
               <td className="hidden 2xl:table-cell">
                 {data.sellPrice.toFixed(2).replace(/\.00$/, "")}
                 <span>$</span>
-              </td> 
+              </td>
               <td
                 className={
                   ((data.sellPrice - (data.buyPrice + data.extraCost)) /
                     (data.buyPrice + data.extraCost)) *
                     100 >
-                  20
+                    20
                     ? "text-green-500"
                     : "text-red-500"
                 }
@@ -112,7 +112,7 @@ const Table: React.FC = () => {
                   className="text-2xl text-red-500"
                   onClick={() => removeItem(index)}
                 >
-                  <TiDeleteOutline />
+                  <img className="w-4" src={deletebtn} alt="delete" />
                 </button>
               </td>
             </tr>
