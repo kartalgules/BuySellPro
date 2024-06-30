@@ -83,7 +83,11 @@ const Table: React.FC = () => {
                     100 >
                     20
                     ? "text-green-500"
-                    : "text-red-500"
+                    : ((data.sellPrice - (data.buyPrice + data.extraCost)) /
+                        (data.buyPrice + data.extraCost)) *
+                        100 >= 0
+                      ? "text-orange-500"
+                      : "text-red-500"
                 }
               >
                 <span>%</span>

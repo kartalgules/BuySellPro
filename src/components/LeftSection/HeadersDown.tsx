@@ -9,18 +9,18 @@ const HeadersDown: FC = () => {
   const totalCost =
     Array.isArray(formData) && formData.length > 0
       ? formData.reduce(
-          (acc, curr) => acc + (curr.buyPrice + curr.extraCost) * curr.quantity,
-          0
-        )
+        (acc, curr) => acc + (curr.buyPrice + curr.extraCost) * curr.quantity,
+        0
+      )
       : 0;
   const totalProfit =
     Array.isArray(formData) && formData.length > 0
       ? formData.reduce(
-          (acc, curr) =>
-            acc +
-            (curr.sellPrice - (curr.buyPrice + curr.extraCost)) * curr.quantity,
-          0
-        )
+        (acc, curr) =>
+          acc +
+          (curr.sellPrice - (curr.buyPrice + curr.extraCost)) * curr.quantity,
+        0
+      )
       : 0;
   const totalCash =
     Array.isArray(formData) && formData.length > 0
@@ -54,9 +54,8 @@ const HeadersDown: FC = () => {
         <div className={style}>
           <h2>{t('kâr')}</h2>
           <h1
-            className={`${totalProfit <= 0 && "text-red-500"} ${
-              totalProfit >= 0 && "text-amber-700"
-            } ${totalProfit >= 20 && "text-green-500"}`}
+            className={`${totalProfit <= 0 && "text-red-500"} ${totalProfit >= 0 && "text-amber-700"
+              } ${totalProfit >= 20 && "text-green-500"}`}
           >
             {totalProfit.toFixed(2).replace(/\.00$/, "")} $
           </h1>
@@ -65,9 +64,8 @@ const HeadersDown: FC = () => {
         <div className={style}>
           <h2>{t('kârMarjı')}</h2>
           <h1
-            className={`${totalProfitmargin <= 0 && "text-red-500"} ${
-              totalProfit >= 0 && "text-amber-700"
-            } ${totalProfit >= 20 && "text-green-500"}`}
+            className={`${totalProfitmargin <= 0 && "text-red-500"} ${totalProfit >= 0 && "text-amber-700"
+              } ${totalProfit >= 20 && "text-green-500"}`}
           >
             % {totalCost !== 0 ? Number(((totalCash - totalCost) * 100) / totalCost).toFixed(2) : 0}
           </h1>
